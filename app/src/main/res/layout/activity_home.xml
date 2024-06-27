@@ -1,0 +1,172 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/fragment_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@id/linlay"
+        app:layout_constraintBottom_toTopOf="@id/share"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"/>
+    <LinearLayout
+        android:id="@+id/linearLAyout"
+        android:layout_width="308dp"
+        android:layout_height="328dp"
+        android:layout_marginStart="60dp"
+        android:orientation="horizontal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.198">
+
+        <FrameLayout
+            android:id="@+id/Cryptoview"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="120dp"
+            android:layout_weight="1"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/cryptobtn"
+                android:layout_width="139dp"
+                android:layout_height="170dp"
+                android:layout_gravity="center"
+                android:background="@drawable/framedraw"
+                android:paddingBottom="35dp"
+                android:src="@drawable/cryptocurrency" />
+
+            <TextView
+                android:id="@+id/crtxt"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="23dp"
+                android:background="#CCCCCC"
+                android:gravity="center"
+                android:text="Crypto Prices"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/stockbtn"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="120dp"
+            android:layout_weight="1"
+            android:padding="8dp">
+
+            <ImageView
+                android:id="@+id/stkbtn"
+                android:layout_width="132dp"
+                android:layout_height="160dp"
+                android:layout_gravity="center"
+                android:background="@drawable/framedraw"
+                android:paddingBottom="25dp"
+                android:src="@drawable/baseline_note_alt_24" />
+
+            <TextView
+                android:id="@+id/stktxt"
+                android:layout_width="112dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="23dp"
+                android:background="#CCCCCC"
+                android:gravity="center"
+                android:text="Notes"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+        </FrameLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/share"
+        android:layout_width="30dp"
+        android:layout_height="52dp"
+        android:layout_marginEnd="36dp"
+        android:background="@drawable/baseline_share_24"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.705" />
+
+    <LinearLayout
+        android:id="@+id/linlay"
+        android:layout_width="match_parent"
+        android:layout_height="200dp"
+        android:layout_marginBottom="4dp"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <TextView
+            android:id="@+id/startview"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Let's Start"
+            android:textAlignment="center"
+            android:textStyle="italic" />
+
+        <View
+
+            android:id="@+id/arrw"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:layout_margin="30dp"
+            android:background="@drawable/baseline_arrow_downward_24" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/newTaskButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:contentDescription="fab button"
+            android:layout_marginBottom="25dp"
+            app:srcCompat="@drawable/baseline_add_24"
+            tools:layout_editor_absoluteX="197dp"
+            tools:layout_editor_absoluteY="745dp" />
+    </LinearLayout>
+
+
+
+
+    <!--    -->
+    <!--     <TextView -->
+    <!--         app:layout_constraintBottom_toTopOf="@+id/arrw" -->
+    <!--         android:id="@+id/strtlrttxt" -->
+    <!--         android:layout_width="match_parent" -->
+    <!--         android:layout_height="wrap_content" -->
+    <!--         android:text="Let's Start" -->
+    <!--         android:textAlignment="center" -->
+    <!--         android:textStyle="italic" -->
+    <!--         /> -->
+    <!--     <View -->
+    <!--         android:id="@+id/arrw" -->
+    <!--         android:layout_width="40dp" -->
+    <!--         android:layout_height="40dp" -->
+    <!--         app:layout_constraintBottom_toTopOf="@+id/newTaskButton" -->
+    <!--         app:layout_constraintStart_toStartOf="parent" -->
+    <!--          -->
+    <!--         app:layout_constraintTop_toBottomOf="@id/strtlrttxt" -->
+    <!--         android:background="@drawable/baseline_arrow_downward_24"/> -->
+    <!--     <com.google.android.material.floatingactionbutton.FloatingActionButton -->
+    <!--         android:id="@+id/newTaskButton" -->
+    <!--         android:layout_width="wrap_content" -->
+    <!--         android:layout_height="wrap_content" -->
+    <!--         app:srcCompat="@drawable/baseline_add_24" -->
+    <!--         tools:layout_editor_absoluteX="197dp" -->
+    <!--         tools:layout_editor_absoluteY="745dp" -->
+    <!--         app:layout_constraintBottom_toBottomOf="parent" -->
+    <!--         app:layout_constraintStart_toStartOf="parent" -->
+    <!--         app:layout_constraintEnd_toEndOf="parent" -->
+    <!--         android:layout_marginBottom="25dp" -->
+    <!--         /> -->
+</androidx.constraintlayout.widget.ConstraintLayout>

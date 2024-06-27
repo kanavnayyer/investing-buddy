@@ -12,7 +12,24 @@
           "package_name": "com.awesome.investingbuddy"
         }
       },
+<<<<<<< HEAD
       "oauth_client": [],
+=======
+      "oauth_client": [
+        {
+          "client_id": "617287888801-qqlk3oa7rq7srb12j377festgsjhjaus.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.awesome.investingbuddy",
+            "certificate_hash": "9babd270855e312d04dd4bf6f3de6a3b4e19c36d"
+          }
+        },
+        {
+          "client_id": "617287888801-17vq9odcl31t6ge336el1invloffmm8e.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+>>>>>>> b20efc8 (changes)
       "api_key": [
         {
           "current_key": "AIzaSyDdVO4tXuzG38trHOKeikcI4sz_DdYOCKY"
@@ -20,7 +37,16 @@
       ],
       "services": {
         "appinvite_service": {
+<<<<<<< HEAD
           "other_platform_oauth_client": []
+=======
+          "other_platform_oauth_client": [
+            {
+              "client_id": "617287888801-17vq9odcl31t6ge336el1invloffmm8e.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+>>>>>>> b20efc8 (changes)
         }
       }
     }

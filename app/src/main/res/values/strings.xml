@@ -1,5 +1,31 @@
 <resources>
-    <string name="app_name">investingbuddy</string>
-    <!-- TODO: Remove or change this placeholder text -->
+    <string name="app_name">Investing Buddy</string>
+    <string-array name="Sectors">
+        <item>AUTO</item>
+        <item>BASIC MATERIAL</item>
+        <item>CHEMMICAL</item>
+        <item>DEFENCE</item>
+        <item>ENERGY</item>
+        <item>FMCG</item>
+        <item>HEALTH</item>
+        <item>INSURANCE</item>
+        <item>IT</item>
+        <item>LUXURY</item>
+        <item>FINANCE</item>
+        <item>OTHERS</item>
+    </string-array>
+    <string-array name="Cryptos">
+        <item>BITCOIN</item>
+        <item>ETHEREUM</item>
+        <item>XRP</item>
+        <item>LITECOIN</item>
+        <item>POLKADOT</item>
+        <item>Other</item>
+    </string-array>
+
+
+    <string name="our_nrecommended_n_quotes">our\nrecommended\n quotes</string>
+    <!--  TODO: Remove or change this placeholder text  -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="gmail">Gmail</string>
 </resources>

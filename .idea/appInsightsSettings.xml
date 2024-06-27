@@ -22,10 +22,10 @@
             <InsightsFilterSettings>
               <option name="connection">
                 <ConnectionSetting>
-                  <option name="appId" value="PLACEHOLDER" />
-                  <option name="mobileSdkAppId" value="" />
-                  <option name="projectId" value="" />
-                  <option name="projectNumber" value="" />
+                  <option name="appId" value="com.awesome.investingbuddy" />
+                  <option name="mobileSdkAppId" value="1:617287888801:android:d4e4b4b37bf722ca26e5e0" />
+                  <option name="projectId" value="investingbuddy-1c71a" />
+                  <option name="projectNumber" value="617287888801" />
                 </ConnectionSetting>
               </option>
               <option name="signal" value="SIGNAL_UNSPECIFIED" />
