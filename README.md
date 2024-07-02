@@ -98,38 +98,38 @@ Build and run the app on an Android device or emulator.
 
 ScreenShots
 
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/b0401480-69a2-4d22-9c5f-ba830139d19c" width="300" height="600">
 
-![Screenshot_2024-07-02-12-47-27-751_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/b0401480-69a2-4d22-9c5f-ba830139d19c)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/6afc47a8-4f06-4eec-87c0-bb7cddc04de8" width="300" height="600">
 
-![Screenshot_2024-07-02-12-47-25-536_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/6afc47a8-4f06-4eec-87c0-bb7cddc04de8)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/6549bc80-e807-4d53-a139-c91e53f2a012" width="300" height="600">
 
-![Screenshot_2024-07-02-12-48-41-986_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/6549bc80-e807-4d53-a139-c91e53f2a012)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/e6c2e04a-583c-4a8b-a8dc-204c3411c8e3" width="300" height="600">
 
-![Screenshot_2024-07-02-12-48-03-135_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/e6c2e04a-583c-4a8b-a8dc-204c3411c8e3)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/339a3feb-38c6-471f-9e3a-67309e4bdfcb" width="300" height="600">
 
-![Screenshot_2024-07-02-12-49-12-898_com example myapplication](https://github.com/kanavnayyer/investing-buddy/assets/78265974/339a3feb-38c6-471f-9e3a-67309e4bdfcb)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/ce2183e6-3a1d-405c-80e6-3d5731d4944e" width="300" height="600">
 
-![Screenshot_2024-07-02-12-49-05-783_com example myapplication](https://github.com/kanavnayyer/investing-buddy/assets/78265974/ce2183e6-3a1d-405c-80e6-3d5731d4944e)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/b260aa6f-dda5-43c8-af7d-1bdb5e891cab" width="300" height="600">
 
-![Screenshot_2024-07-02-12-49-18-982_com example myapplication](https://github.com/kanavnayyer/investing-buddy/assets/78265974/b260aa6f-dda5-43c8-af7d-1bdb5e891cab)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/5cfde229-9173-4784-ad15-c9de50f9fbee" width="300" height="600">
 
-![Screenshot_2024-07-02-12-48-29-409_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/5cfde229-9173-4784-ad15-c9de50f9fbee)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/5566ea66-4cc9-4815-9148-dc15db13320a" width="300" height="600">
 
-![Screenshot_2024-07-02-12-48-44-737_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/5566ea66-4cc9-4815-9148-dc15db13320a)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/fd753f3b-7ad9-4649-aacd-7d2b5e0fabdc" width="300" height="600">
 
-![Screenshot_2024-07-02-12-48-19-282_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/fd753f3b-7ad9-4649-aacd-7d2b5e0fabdc)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/c09634dd-2b3a-4bf7-9410-9d789f533480" width="300" height="600">
 
-![Screenshot_2024-07-02-12-49-10-298_com example myapplication](https://github.com/kanavnayyer/investing-buddy/assets/78265974/c09634dd-2b3a-4bf7-9410-9d789f533480)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/926cb6c1-9985-4052-a150-5ecd13a8e821" width="300" height="600">
 
-![Screenshot_2024-07-02-12-47-36-390_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/926cb6c1-9985-4052-a150-5ecd13a8e821)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/f6ed846f-ee2f-4a47-b708-17993a63bf72" width="300" height="600">
 
-![Screenshot_2024-07-02-12-47-32-861_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/f6ed846f-ee2f-4a47-b708-17993a63bf72)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/a55cf1f0-120a-4fe1-bfd1-80d010c9ca41" width="300" height="600">
 
-![Screenshot_2024-07-02-12-47-39-335_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/a55cf1f0-120a-4fe1-bfd1-80d010c9ca41)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/bc3167b4-42c0-46a6-8809-b9924e919153" width="300" height="600">
 
-![Screenshot_2024-07-02-12-48-33-986_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/bc3167b4-42c0-46a6-8809-b9924e919153)
+<img src="https://github.com/kanavnayyer/investing-buddy/assets/78265974/6b802f5d-9555-4b41-aec9-61a5ef7a1694" width="300" height="600">
 
-![Screenshot_2024-07-02-12-47-44-309_com awesome investingbuddy](https://github.com/kanavnayyer/investing-buddy/assets/78265974/6b802f5d-9555-4b41-aec9-61a5ef7a1694)
 
 
 https://github.com/kanavnayyer/investing-buddy/assets/78265974/fb8bf6f8-db2d-47d4-915b-9d15411918cd
