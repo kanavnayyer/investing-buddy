@@ -37,6 +37,49 @@ XML: Layouts and UI design
 
 
 
+Dependencies Used
+Here are the dependencies used in the Investing Buddy Android app:
+
+implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
+    implementation ("org.json:json:20210307")
+
+    implementation("com.google.android.gms:play-services-auth:21.2.0")
+
+    implementation("com.github.bumptech.glide:glide:3.7.0")
+    implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation ("io.coil-kt:coil:1.4.0")
+
+
+    Explanation
+MPAndroidChart: Used for displaying charts in the app.
+
+org.json: Library for JSON manipulation.
+
+play-services-auth: Google Play services authentication.
+
+Glide: Image loading and caching library.
+
+OkHttp: HTTP client for making network requests.
+
+Retrofit: HTTP client for REST APIs.
+
+Gson Converter: Retrofit converter for JSON serialization/deserialization.
+
+Coil: Image loading library (modern alternative to Glide).
+
+How to Use
+
+Copy these dependencies into your build.gradle file under the dependencies block.
+
+Ensure your project is synced with these dependencies to enable their use in your project.
+
+
+
 API Integration
 CoinMarketCap API
 For fetching real-time crypto prices and market data, the app integrates with the CoinMarketCap API. Developers can obtain their API key from CoinMarketCap and configure it in the app's networking code.
@@ -82,6 +125,10 @@ class AllApi {
 
     }
 }
+
+
+Enable View Binding in your build.gradle file:
+
 
 
 Build and run the app on an Android device or emulator.
