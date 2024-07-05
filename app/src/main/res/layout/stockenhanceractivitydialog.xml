@@ -1,0 +1,80 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="280dp">
+
+    <View
+        android:id="@+id/backcripbtn"
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        android:layout_margin="12dp"
+        android:background="@drawable/baseline_cancel_24"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="220dp"
+        android:background="@color/white"
+        android:orientation="horizontal"
+        app:layout_constraintTop_toBottomOf="@+id/backcripbtn">
+
+        <FrameLayout
+            android:id="@+id/Cryptoview"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:padding="8dp">
+
+<!--            <ImageView-->
+<!--                android:id="@+id/heatstock"-->
+<!--                android:layout_width="132dp"-->
+<!--                android:layout_height="160dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@drawable/framedraw"-->
+<!--                android:padding="25dp"-->
+<!--                android:src="@drawable/stockheat" />-->
+
+            <TextView
+                android:id="@+id/crtxt"
+                android:layout_width="115dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="23dp"
+                android:background="#CCCCCC"
+                android:gravity="center"
+                android:text="Heat Map"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/stockbtn"
+            android:layout_width="180dp"
+            android:layout_height="200dp"
+            android:layout_weight="1"
+            android:padding="8dp">
+
+<!--            <ImageView-->
+<!--                android:id="@+id/stockfearandgreed"-->
+<!--                android:layout_width="132dp"-->
+<!--                android:layout_height="160dp"-->
+<!--                android:layout_gravity="center"-->
+<!--                android:background="@drawable/framedraw"-->
+<!--                android:padding="25dp"-->
+<!--                android:src="@drawable/analyticsfearcrip" />-->
+
+            <TextView
+                android:id="@+id/stktxt"
+                android:layout_width="112dp"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|bottom"
+                android:layout_marginBottom="23dp"
+                android:background="#CCCCCC"
+                android:gravity="center"
+                android:text="Fear &amp; greed"
+                android:textSize="15sp"
+                android:textStyle="italic" />
+        </FrameLayout>
+    </LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

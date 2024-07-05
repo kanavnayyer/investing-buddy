@@ -54,7 +54,17 @@ hideViews()}
 
 
 
+binding.newsbtn.setOnClickListener {
 
+        val fragment = NewsFragment() // Replace 'MyFragment' with your fragment class
+
+        supportFragmentManager.beginTransaction()
+            .replace(R.id.fragment_container, fragment)
+            .addToBackStack(null) // Optional: Adds the transaction to the back stack
+            .commit()
+
+        hideViews()
+}
 
 
 

@@ -37,9 +37,7 @@ class NewTaskSheet : BottomSheetDialogFragment()
         binding.cryptoscreenfrag.setOnClickListener {
             crippie()
         }
-        binding.housegoldlayout.setOnClickListener {
-            commoditesreal()
-        }
+
         binding.EmiCalculator.setOnClickListener {
             emiCal()
         }
@@ -95,13 +93,7 @@ class NewTaskSheet : BottomSheetDialogFragment()
         }
         dismiss()
     }
-    private  fun commoditesreal(){
-        activity?.let {
-            val intent= Intent(it,goldrealActivity::class.java)
-            it.startActivity(intent)
-        }
-        dismiss()
-    }
+
     private  fun emiCal(){
         activity?.let {
             val intent = Intent(it,EmiCalculatorActivity::class.java)

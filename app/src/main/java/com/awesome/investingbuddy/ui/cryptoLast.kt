@@ -4,30 +4,32 @@ import android.Manifest
 import android.annotation.SuppressLint
 import android.app.Dialog
 import android.content.ContentValues
-import android.content.Intent
 import android.graphics.Bitmap
 import android.graphics.Canvas
 import android.graphics.Color
 import android.graphics.Typeface
 import android.net.Uri
 import android.os.Build
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Environment
-import android.provider.ContactsContract.CommonDataKinds.Im
 import android.provider.MediaStore
 import android.util.Log
 import android.view.MenuItem
 import android.view.View
 import android.widget.Button
-import android.widget.ImageView
-import android.widget.RelativeLayout
+import android.widget.EditText
 import android.widget.TextView
 import android.widget.Toast
+import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.ActionBar
+import androidx.appcompat.app.AppCompatActivity
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.core.app.ActivityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.awesome.investingbuddy.R
-
+import com.awesome.investingbuddy.adapters.DBContract2
+import com.awesome.investingbuddy.adapters.DBCrypto
 import com.github.mikephil.charting.animation.Easing
 import com.github.mikephil.charting.charts.PieChart
 import com.github.mikephil.charting.data.PieData
@@ -35,30 +37,63 @@ import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
 import com.github.mikephil.charting.utils.MPPointF
-import com.google.android.material.floatingactionbutton.FloatingActionButton
 import java.io.File
 import java.io.FileOutputStream
 import java.io.OutputStream
 
-
-class cripreccomendationActivity : AppCompatActivity() {
-    lateinit var pieChart: PieChart
+class cryptoLast : AppCompatActivity() {
     private var cpd: Dialog? = null
-    private var load:Dialog?=null
-    @SuppressLint("SuspiciousIndentation")
+    lateinit var pieChart: PieChart
+
+    @SuppressLint("MissingInflatedId", "Range", "SuspiciousIndentation")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_cripreccomendation)
-
+        setContentView(R.layout.activity_crypto_last)
         pie();
-        val user: TextView =findViewById(R.id.userdata)
-        user.setOnClickListener { val intent=Intent(this,cryptodatbasecreator::class.java)
-            startActivity(intent)}
+        var delcc: ConstraintLayout =findViewById(R.id.delcc)
+        var updtcc: ConstraintLayout =findViewById(R.id.updtcc)
+        var updtb: Button =findViewById(R.id.button2)
+        updtb.setOnClickListener {
+            updtcc.visibility= View.VISIBLE
+        }
+        var updtt: Button =findViewById(R.id.updt)
+        updtt.setOnClickListener {
+            var sector: EditText =findViewById(R.id.Sector)
+            var newinves: EditText =findViewById(R.id.NewInvestment)
+            var db= DBCrypto(this)
+            if(db.updateSpec(sector.text.toString(),newinves.text.toString())){
+                pie();
+                Toast.makeText(this,"Sector "+sector.text.toString()+" is Updated", Toast.LENGTH_SHORT).show()
+                updtcc.visibility= View.GONE
+            }else{
+                Toast.makeText(this,"Sector "+sector.text.toString()+" is not Updated", Toast.LENGTH_SHORT).show()
+                updtcc.visibility= View.GONE
+            }
+        }
+        findViewById<Button>(R.id.cancelupdt).setOnClickListener {
+            findViewById<ConstraintLayout>(R.id.updtcc).visibility=View.GONE
+        }
 
-        val btnfloatsug = findViewById<FloatingActionButton>(R.id.cripaddons)
-        btnfloatsug.setOnClickListener { shd() }
+        var del1: Button =findViewById(R.id.button)
 
-//save work started
+        del1.setOnClickListener {
+            delcc.visibility= View.VISIBLE
+
+        }
+        var delcan: Button =findViewById(R.id.delcan)
+        delcan.setOnClickListener {
+            delcc.visibility= View.GONE;
+        }
+        var del2: Button =findViewById(R.id.del)
+        del2.setOnClickListener {
+            var ed: EditText =findViewById(R.id.editTextText)
+            var db= DBCrypto(this);
+
+            db.delspec(ed.text.toString())
+            pie();
+            Toast.makeText(this,"Investment of"+ed.text.toString()+ " is updated", Toast.LENGTH_SHORT).show()
+            delcc.visibility= View.GONE
+        }
         ActivityCompat.requestPermissions(
             this,
             arrayOf(Manifest.permission.WRITE_EXTERNAL_STORAGE),
@@ -76,16 +111,15 @@ class cripreccomendationActivity : AppCompatActivity() {
 
         // on click of this button it will capture
         // screenshot and save into gallery
-        val captureButton = findViewById<View>(R.id.savefrmrecommendationcrypto)
+        val captureButton = findViewById<Button>(R.id.button3)
         captureButton.setOnClickListener {
             // get the bitmap of the view using
             // getScreenShotFromView method it is
             // implemented below
-            // shd()
-            shwload()
+            shd()
             pieChart.centerText="Generated by \nInvestment Buddy"
-            val tosave=findViewById<RelativeLayout>(R.id.relativedimen)
-            val bitmap = getScreenShotFromView(tosave)
+
+            val bitmap = getScreenShotFromView(pieChart)
 
             // if bitmap is not null then
             // save it to gallery
@@ -93,8 +127,10 @@ class cripreccomendationActivity : AppCompatActivity() {
                 saveMediaToStorage(bitmap)
             }
         }
+        val actionBar: ActionBar? = supportActionBar
 
-  }
+     
+    }
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             android.R.id.home -> {
@@ -104,34 +140,52 @@ class cripreccomendationActivity : AppCompatActivity() {
         }
         return super.onOptionsItemSelected(item)
     }
-
-    private fun getScreenShotFromView(v: View): Bitmap? {
-        // create a bitmap object
-
-        var screenshot: Bitmap? = null
-        try {
-            // inflate screenshot object
-            // with Bitmap.createBitmap it
-            // requires three parameters
-            // width and height of the view and
-            // the background color
-            screenshot =
-                Bitmap.createBitmap(v.measuredWidth, v.measuredHeight, Bitmap.Config.ARGB_8888)
-            // Now draw this bitmap on a canvas
-            val canvas = Canvas(screenshot)
-            v.draw(canvas)
-        } catch (e: Exception) {
-            Log.e("Investing Buddy", "Failed to capture screenshot because:" + e.message)
-        }
-        // return the bitmap
-        return screenshot
-    }
-
+    @SuppressLint("Range")
     fun pie(){
+        var tex=findViewById<TextView>(R.id.textView2)
+
+
+        var cursor= DBCrypto(this).readData();
+        var total=ArrayList<String>()
+        var selected=ArrayList<String>()
+        var selamount=ArrayList<String>()
+
+
+        if(cursor!!.moveToFirst()){
+            cursor!!.moveToFirst();
+
+            total.add(cursor.getString((cursor!!.getColumnIndex(DBContract2.DBEntry.COLUMN_Total))))
+            selected.add(cursor.getString((cursor!!.getColumnIndex(DBContract2.DBEntry.COLUMN_Name))))
+            selamount.add(cursor.getString((cursor!!.getColumnIndex(DBContract2.DBEntry.COLUMN_Invested))))
+
+            while(cursor!!.moveToNext()){
+                total.add(cursor.getString((cursor!!.getColumnIndex(DBContract2.DBEntry.COLUMN_Total))))
+                selected.add(cursor.getString((cursor!!.getColumnIndex(DBContract2.DBEntry.COLUMN_Name))))
+                selamount.add(cursor.getString((cursor!!.getColumnIndex(DBContract2.DBEntry.COLUMN_Invested))))
+
+            }
+
+
+
+//var m=cursor.getString(cursor.getColumnIndex(DBContract.DBEntry.COLUMN_NAME_AGE))
+            //text.setText(m)
+        }
+
+
+
+
+
+
+
+        // pie
+
+
+
         pieChart = findViewById(R.id.pieChart)
 
         // on below line we are setting user percent value,
         // setting description as enabled and offset for pie chart
+
         pieChart.setUsePercentValues(true)
         pieChart.getDescription().setEnabled(false)
         pieChart.setExtraOffsets(5f, 10f, 5f, 5f)
@@ -162,29 +216,51 @@ class cripreccomendationActivity : AppCompatActivity() {
         // enable rotation of the pieChart by touch
         pieChart.setRotationEnabled(true)
         pieChart.setHighlightPerTapEnabled(true)
-
         // on below line we are setting animation for our pie chart
         pieChart.animateY(1400, Easing.EaseInOutQuad)
 
         // on below line we are disabling our legend for pie chart
-        pieChart.legend.isEnabled = false
-        pieChart.setEntryLabelColor(Color.WHITE)
+        pieChart.legend.isEnabled = true
+        pieChart.legend.textSize= 10f
+
+        pieChart.setEntryLabelColor(Color.BLACK)
         pieChart.setEntryLabelTextSize(12f)
 
         // on below line we are creating array list and
         // adding data to it to display in pie chart
         val entries: ArrayList<PieEntry> = ArrayList()
         var a:Float
-        entries.add(PieEntry(30f))
-        entries.add(PieEntry(25f,))
-        entries.add(PieEntry(15f))
-        entries.add(PieEntry(10f))
-        entries.add(PieEntry(5f))
-        entries.add(PieEntry(15f))
+        /*  entries.add(PieEntry(16f,""))
+          entries.add(PieEntry(5f,))
+          entries.add(PieEntry(7f,))
+          entries.add(PieEntry(5f))
+          entries.add(PieEntry(8f,))
+          entries.add(PieEntry(11f,))
+          entries.add(PieEntry(15f,))
+          entries.add(PieEntry(8f,))
+          entries.add(PieEntry(14f))
+          entries.add(PieEntry(7f))
+          entries.add(PieEntry(4f))*/
+        var i=0
+        var totalpie=0f;
 
+        while(true){
+            if(i==selected.size){
+                break
+            }
+            totalpie+=selamount.get(i).toFloat()
+            entries.add(PieEntry(selamount.get(i).toFloat(),selected.get(i)))
+            i++;
 
-        // on below line we are setting pie data set
-        val dataSet = PieDataSet(entries, "Our\nRecommendation")
+        }
+        if(total.get(0).toFloat()-totalpie!=0f){
+            if(total.get(0).toFloat()-totalpie<0){
+                total.set(0,totalpie.toString());
+                entries.add(PieEntry(total.get(0).toFloat()-totalpie,"Left amount"))
+            }else {
+                entries.add(PieEntry(total.get(0).toFloat() - totalpie, "Left amount"))
+            } }// on below line we are setting pie data set}
+        val dataSet = PieDataSet(entries, "")
 
         // on below line we are setting icons.
         dataSet.setDrawIcons(false)
@@ -194,24 +270,22 @@ class cripreccomendationActivity : AppCompatActivity() {
         dataSet.iconsOffset = MPPointF(0f, 40f)
 
         dataSet.selectionShift = 5f
-        pieChart.centerText=dataSet.label
+        pieChart.centerText=totalpie.toString()
+
         // add a lot of colors to l
         val colors: ArrayList<Int> = ArrayList()
-        colors.add(resources.getColor(R.color.purple_200))
-
-        colors.add(resources.getColor(R.color.yellow))
-        colors.add(resources.getColor(R.color.blue))
         colors.add(resources.getColor(R.color.teal_200))
-
-        colors.add(resources.getColor(R.color.orange))
-        colors.add(resources.getColor(R.color.black))
+        colors.add(resources.getColor(R.color.purple_200))
+        colors.add(resources.getColor(R.color.yellow))
+        colors.add(resources.getColor(R.color.darkblue))
         colors.add(resources.getColor(R.color.oran))
         colors.add(resources.getColor(R.color.ocean_blue))
-        colors.add(resources.getColor(R.color.darkblue))
-
+        colors.add(resources.getColor(R.color.orange))
+        colors.add(resources.getColor(R.color.blue))
         colors.add(resources.getColor(R.color.lightg))
         colors.add(resources.getColor(R.color.red))
         colors.add(resources.getColor(R.color.pur))
+        colors.add(resources.getColor(R.color.black))
 
 
         // on below line we are setting colors.
@@ -226,7 +300,37 @@ class cripreccomendationActivity : AppCompatActivity() {
         pieChart.setData(data)
         // undo all highlights
         pieChart.highlightValues(null)
+
     }
+
+
+
+
+
+
+    private fun getScreenShotFromView(v: View): Bitmap? {
+        // create a bitmap object
+
+        var screenshot: Bitmap? = null
+        try {
+            // inflate screenshot object
+            // with Bitmap.createBitmap it
+            // requires three parameters
+            // width and height of the view and
+            // the background color
+            screenshot =
+                Bitmap.createBitmap(v.measuredWidth, v.measuredHeight, Bitmap.Config.ARGB_8888)
+            // Now draw this bitmap on a canvas
+            val canvas = Canvas(screenshot)
+            v.draw(canvas)
+        } catch (e: Exception) {
+            Log.e("Investing Buddy", "Failed to capture screenshot because:" + e.message)
+        }
+        // return the bitmap
+        return screenshot
+    }
+
+
     // this method saves the image to gallery
     private fun saveMediaToStorage(bitmap: Bitmap){
 
@@ -272,71 +376,33 @@ class cripreccomendationActivity : AppCompatActivity() {
             fos = FileOutputStream(image)
 
         }
-        //cpd()
-        loadb()//for backing loading
+        cpd()
         fos?.use {
             // Finally writing the bitmap to the output stream that we opened
             bitmap.compress(Bitmap.CompressFormat.JPEG, 100, it)
             Toast.makeText(this, "Captured View and saved to Gallery", Toast.LENGTH_SHORT).show()
 
 
-            pieChart.centerText = "Our\n" +
-                    "Recommendation"
+            // pieChart.centerText=totalpie.toString()
 //            }
 
         }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     }
-    @SuppressLint("SuspiciousIndentation")
+
     private fun shd() {
-        cpd = Dialog(this@cripreccomendationActivity)
-        cpd?.setContentView(R.layout.cripenhancers)
+        cpd = Dialog(this@cryptoLast)
+        cpd?.setContentView(R.layout.load_dialogue)
         cpd?.show()
 
-
-        val feargreed=cpd?.findViewById<ImageView>(R.id.cripfeargreedbtn)
-        feargreed?.setOnClickListener { val intent= Intent(this,cryptofeargreed::class.java)
-
-            startActivity(intent)}
-        val bkk=cpd?.findViewById<View>(R.id.backcripbtn)
-        bkk?.setOnClickListener { back() }
     }
 
-
-    private fun back(){
+    private fun cpd() {
         if (cpd != null) {
             cpd?.dismiss()
             cpd = null
         }
     }
-    private fun shwload() {
-        load = Dialog(this@cripreccomendationActivity)
-        load?.setContentView(R.layout.load_dialogue)
-        load?.show()
 
-    }
 
-    private fun loadb() {
-        if (load != null) {
-            load?.dismiss()
-            load = null
-        }
-
-    }}
+}

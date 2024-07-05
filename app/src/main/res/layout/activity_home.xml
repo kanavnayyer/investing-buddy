@@ -17,17 +17,55 @@
         android:layout_width="308dp"
         android:layout_height="328dp"
         android:layout_marginStart="60dp"
-        android:orientation="horizontal"
+        android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.198">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="110dp">
+            <FrameLayout
+                android:id="@+id/NewsView"
+                android:layout_width="match_parent"
+                android:layout_height="120dp"
+
+                android:layout_weight="1"
+                android:padding="8dp">
+
+                <ImageView
+                    android:id="@+id/newsbtn"
+                    android:layout_width="200dp"
+                    android:layout_height="80dp"
+                    android:layout_gravity="center"
+                    android:background="@drawable/framedraw"
+                    android:paddingBottom="35dp"
+                    android:src="@drawable/news" />
+
+                <TextView
+                    android:id="@+id/newst"
+                    android:layout_width="115dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center|bottom"
+                    android:layout_marginBottom="23dp"
+                    android:background="#CCCCCC"
+                    android:gravity="center"
+                    android:text="News"
+                    android:textSize="15sp"
+                    android:textStyle="italic" />
+            </FrameLayout>
+
+        </LinearLayout>
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="230dp"
+    android:orientation="horizontal">
 
         <FrameLayout
             android:id="@+id/Cryptoview"
             android:layout_width="180dp"
             android:layout_height="200dp"
-            android:layout_marginTop="120dp"
+
             android:layout_weight="1"
             android:padding="8dp">
 
@@ -57,7 +95,7 @@
             android:id="@+id/stockbtn"
             android:layout_width="180dp"
             android:layout_height="200dp"
-            android:layout_marginTop="120dp"
+
             android:layout_weight="1"
             android:padding="8dp">
 
@@ -82,6 +120,9 @@
                 android:textSize="15sp"
                 android:textStyle="italic" />
         </FrameLayout>
+
+
+</LinearLayout>
     </LinearLayout>
 
     <View

@@ -53,10 +53,21 @@ dependencies {
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
     implementation ("com.github.PhilJay:MPAndroidChart:v3.1.0")
-
+    implementation ("org.json:json:20210307")
 
     implementation("com.google.android.gms:play-services-auth:21.2.0")
 
     implementation("com.github.bumptech.glide:glide:3.7.0")
     implementation ("com.squareup.okhttp3:okhttp:4.9.0")
+
+
+    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
+    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+
+    implementation ("io.coil-kt:coil:1.4.0")
+
+
+
+
+
 }
